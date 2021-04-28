@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.front_page, name='home'),
     path('instructions/', views.instructions, name='instructions'),
-    path('news/<int:newspost_id>/', views.newspost_detail, name='newspost_detail') 
+    path('news/<int:newspost_id>/', views.newspost_detail, name='newspost_detail') #int for unique url  
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

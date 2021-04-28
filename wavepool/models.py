@@ -33,7 +33,7 @@ class NewsPost(models.Model):
     @property
     def source_divesite_name(self): 
         for key,value in DIVESITE_SOURCE_NAMES.items():
-            if key in self.source: 
+            if key in self.source:                                    #lo
                 return value
 
     def tags(self):

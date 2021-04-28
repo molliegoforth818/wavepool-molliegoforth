@@ -29,11 +29,11 @@ def front_page(request):
 
 def newspost_detail(request, newspost_id=None):
     template = loader.get_template('wavepool/newspost.html')
-    newspost = NewsPost.objects.get(pk=newspost_id) 
-    is_authenticated = request.user.is_authenticated 
+    newspost = NewsPost.objects.get(pk=newspost_id)   # getting unique id for details page 
+    is_authenticated = request.user.is_authenticated    # checking to see if user is authenticated to render edit button
     context = {
         'newspost': newspost,
-        'is_authenticated': False,             */ hard coded to false to show functionality 
+        'is_authenticated': False,             # hard coded to false to show functionality 
     }
 
     return HttpResponse(template.render(context, request))
