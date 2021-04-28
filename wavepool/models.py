@@ -11,6 +11,7 @@ DIVESITE_SOURCE_NAMES = {
     'grocerydive': 'Grocery Dive',
     'biopharmadive': 'BioPharma Dive',
     'hrdive': 'HR Dive',
+    'k12dive': "K12 Dive"
 }
 
 
@@ -23,15 +24,17 @@ class NewsPost(models.Model):
 
     @property
     def url(self):
-        return reverse('newspost_detail')
+        return reverse('newspost_detail', kwargs={"newspost_id": self.id})
 
     @property
     def teaser(self):
         return self.body[:150]
 
     @property
-    def source_divesite_name(self):
-        return 'Industry Dive'
+    def source_divesite_name(self): 
+        for key,value in DIVESITE_SOURCE_NAMES.items():
+            if key in self.source:                                    #lo
+                return value
 
     def tags(self):
         return [
