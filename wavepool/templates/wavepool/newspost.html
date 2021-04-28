@@ -25,7 +25,7 @@
 		</div>
 		<div class="row"><a href="{{newspost.source}}" target="_blank">See the live story at {{newspost.source_divesite_name}}</a></div>
 		<div class="row newspost-body">
-			{{ newspost.body }}
+			{{ newspost.body | safe | linebreaks }}
 		</div>
 	</div>
 
