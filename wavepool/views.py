@@ -33,7 +33,7 @@ def newspost_detail(request, newspost_id=None):
     is_authenticated = request.user.is_authenticated 
     context = {
         'newspost': newspost,
-        'is_authenticated': False,
+        'is_authenticated': False,             */ hard coded to false to show functionality 
     }
 
     return HttpResponse(template.render(context, request))
