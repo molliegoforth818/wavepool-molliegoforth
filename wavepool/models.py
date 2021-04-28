@@ -11,6 +11,7 @@ DIVESITE_SOURCE_NAMES = {
     'grocerydive': 'Grocery Dive',
     'biopharmadive': 'BioPharma Dive',
     'hrdive': 'HR Dive',
+    'k12dive': "K12 Dive"
 }
 
 
@@ -30,8 +31,10 @@ class NewsPost(models.Model):
         return self.body[:150]
 
     @property
-    def source_divesite_name(self):
-        return 'Industry Dive'
+    def source_divesite_name(self): 
+        for key,value in DIVESITE_SOURCE_NAMES.items():
+            if key in self.source: 
+                return value
 
     def tags(self):
         return [

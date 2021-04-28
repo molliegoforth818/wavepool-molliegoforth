@@ -29,9 +29,11 @@ def front_page(request):
 
 def newspost_detail(request, newspost_id=None):
     template = loader.get_template('wavepool/newspost.html')
-    newspost = NewsPost.objects.get(pk=newspost_id)
+    newspost = NewsPost.objects.get(pk=newspost_id) 
+    is_authenticated = request.user.is_authenticated 
     context = {
-        'newspost': newspost
+        'newspost': newspost,
+        'is_authenticated': False,
     }
 
     return HttpResponse(template.render(context, request))
